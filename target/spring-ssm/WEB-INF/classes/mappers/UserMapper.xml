@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bao.mapper.IUserMapper">
+    <insert id="addUser" keyProperty="use.id" useGeneratedKeys="true">
+ insert into t_user(name,password) values(#{use.name},#{use.password});
+    </insert>
+<!--    删-->
+    <update id="deleteById">
+    update t_user set status=1 where id=#{id};
+    </update>
+<!--    改-->
+    <update id="updateUser" >
+        update  t_user set name=#{use1.name} , password=#{use1.password} where id=#{use1.id};
+    </update>
+<!--查-->
+    <select id="querryAll" resultType="com.bao.entity.User">
+        select * from t_user;
+    </select>
+</mapper>
